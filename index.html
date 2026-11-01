@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volleyball Scorer BD</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1 data-i18n="title">Volleyball Scorer BD</h1>
+  <p class="subtitle" data-i18n="subtitle">Live rally-scoring scoreboard for volleyball matches in Bangladesh. Works fully offline &#8212; your matches stay on your device.</p>
+  <button id="langBtn" type="button">&#2476;&#2494;&#2434;&#2482;&#2494;</button>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <button id="tab-score" class="tab active" type="button" data-i18n="tabScore">Score</button>
+  <button id="tab-history" class="tab" type="button" data-i18n="tabHistory">History</button>
+  <button id="tab-data" class="tab" type="button" data-i18n="tabData">Data</button>
+</nav>
+
+<main>
+  <section id="panel-score">
+    <div id="setupCard" class="card">
+      <h2 data-i18n="setupTitle">New match</h2>
+      <label><span data-i18n="teamA">Team A name</span>
+        <input id="nameA" type="text" maxlength="30" placeholder="Team A"></label>
+      <label><span data-i18n="teamB">Team B name</span>
+        <input id="nameB" type="text" maxlength="30" placeholder="Team B"></label>
+      <label><span data-i18n="format">Match format</span>
+        <select id="bestOf">
+          <option value="3" data-i18n="best3">Best of 3 (first to 2 sets)</option>
+          <option value="5" data-i18n="best5">Best of 5 (first to 3 sets)</option>
+        </select></label>
+      <p id="setupError" class="error" role="alert"></p>
+      <button id="startBtn" type="button" data-i18n="start">Start match</button>
+    </div>
+
+    <div id="scoreCard" class="card" hidden>
+      <p id="setLine" class="setline"></p>
+      <div class="board">
+        <div class="side">
+          <div id="nameLeft" class="teamname"></div>
+          <div id="scoreLeft" class="score">0</div>
+          <button id="pointBtnA" type="button" data-i18n="pointA">+1 Team A</button>
+        </div>
+        <div class="side">
+          <div id="nameRight" class="teamname"></div>
+          <div id="scoreRight" class="score">0</div>
+          <button id="pointBtnB" type="button" data-i18n="pointB">+1 Team B</button>
+        </div>
+      </div>
+      <p id="serverLine" class="meta"></p>
+      <p id="pointLine" class="pointline" hidden></p>
+      <p class="meta"><span data-i18n="setScores">Set scores</span>: <span id="setScores">&#8212;</span></p>
+      <p id="timerLine" class="meta"></p>
+      <div id="resultBanner" class="banner" hidden></div>
+      <div class="controls">
+        <button id="undoBtn" type="button" data-i18n="undo">Undo last point</button>
+        <button id="swapBtn" type="button" data-i18n="swap">Swap sides</button>
+        <button id="endEarlyBtn" type="button" data-i18n="endEarly">End match early</button>
+        <button id="newMatchBtn" type="button" data-i18n="newMatch">New match</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-history" hidden>
+    <div class="card">
+      <h2 data-i18n="historyTitle">Finished matches</h2>
+      <div id="historyList"></div>
+    </div>
+  </section>
+
+  <section id="panel-data" hidden>
+    <div class="card">
+      <h2 data-i18n="dataTitle">Your data</h2>
+      <button id="exportBtn" type="button" data-i18n="export">Export JSON</button>
+      <textarea id="exportOutput" rows="6" readonly placeholder="Exported JSON appears here&#8230;"></textarea>
+      <textarea id="importInput" rows="6" data-i18n-ph="importPlaceholder" placeholder="Paste exported JSON here&#8230;"></textarea>
+      <button id="importBtn" type="button" data-i18n="import">Import JSON</button>
+      <p id="dataMsg" class="meta"></p>
+      <label><span data-i18n="eraseLabel">Type DELETE to erase all history and the live match:</span>
+        <input id="eraseInput" type="text" placeholder="DELETE"></label>
+      <button id="eraseBtn" type="button" data-i18n="erase">Erase all</button>
+    </div>
+  </section>
+</main>
+
+<footer data-i18n="footer">Offline toy scoreboard &#8212; not affiliated with any federation. Sets 1&#8211;4 to 25, deciding set to 15, win by 2 with no cap; set winner serves first in the next set.</footer>
+
+<script src="js/logic.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

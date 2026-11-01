@@ -1,0 +1,32 @@
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 720px; padding: 16px; font-family: system-ui, sans-serif; color: #122; background: #f4f7f4; }
+header { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+h1 { flex: 1 1 240px; margin: 8px 0; font-size: 1.6rem; }
+.subtitle { flex: 1 1 100%; margin: 0 0 8px; color: #445; }
+button { cursor: pointer; padding: 10px 14px; border: 1px solid #2a6b3f; border-radius: 8px; background: #2a6b3f; color: #fff; font-size: 1rem; }
+button:disabled { opacity: 0.45; cursor: default; }
+button.active { background: #123; border-color: #123; }
+.tabs { display: flex; gap: 8px; margin: 12px 0; }
+.tab { background: #fff; color: #122; border-color: #bbb; }
+.tab.active { background: #123; color: #fff; border-color: #123; }
+.card { background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+label { display: block; margin: 10px 0; }
+input, select, textarea { width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #bbb; border-radius: 8px; font-size: 1rem; }
+.error { color: #b00020; min-height: 1.2em; }
+.board { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; text-align: center; }
+.side { border: 1px solid #ddd; border-radius: 10px; padding: 12px 6px; }
+.teamname { font-weight: 700; overflow-wrap: anywhere; }
+.score { font-size: 4rem; line-height: 1.1; font-weight: 800; }
+.setline { font-weight: 700; }
+.meta { color: #445; }
+.pointline { font-weight: 800; color: #b00020; }
+.banner { background: #e6f4ea; border: 2px solid #2a6b3f; border-radius: 10px; padding: 12px; font-weight: 800; margin: 12px 0; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.controls button { background: #fff; color: #122; border-color: #bbb; }
+.hist-row { padding: 10px 0; border-bottom: 1px solid #eee; }
+footer { color: #667; font-size: 0.9rem; }
+@media (max-width: 390px) {
+  body { padding: 10px; }
+  .score { font-size: 3rem; }
+  button { padding: 9px 10px; }
+}

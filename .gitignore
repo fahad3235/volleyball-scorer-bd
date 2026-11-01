@@ -1,0 +1,4 @@
+# Local / generated artefacts -- never pushed
+.DS_Store
+*.log
+node_modules/
